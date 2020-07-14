@@ -1,0 +1,13 @@
+require_relative 'scraper'
+
+# Scrap url=https://www.imdb.com/chart/top => Liste des 5 premiers films (lien)
+urls = fetch_movies_urls
+# Voir chaque url pour récupérer le contenu
+movies = []
+urls.each do |url|
+  movie = scrap_movie(url)
+  # movie => Hash
+  movies << movie
+end
+
+p movies
