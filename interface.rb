@@ -1,3 +1,7 @@
+require "yaml"
+# array = [ { a: "a" }, { b: "b" }]
+# puts array.to_yaml
+
 require_relative 'scraper'
 
 # Scrap url=https://www.imdb.com/chart/top => Liste des 5 premiers films (lien)
@@ -11,3 +15,8 @@ urls.each do |url|
 end
 
 p movies
+
+
+File.open("the_file.yml", "w") do |f|
+  f.write(movies.to_yaml)
+end
